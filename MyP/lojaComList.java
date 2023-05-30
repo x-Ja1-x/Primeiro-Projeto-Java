@@ -10,7 +10,7 @@ import UtilityProjects.ListProd;
 import util.SysCheck; 
 
 	public class lojaComList {
-
+		// teste
 		public static void main(String[] args) {
 			
 			Locale.setDefault(Locale.US);
@@ -74,12 +74,11 @@ import util.SysCheck;
 			if (response == 'n') {
 				System.out.println();
 				System.out.println("Operação finalizada por não haver nenhum produto para balanço.");
-				System.out.print("Obrigado volte sempre.");
 			}
 			Integer number = 1;
 			if (response == 's') {
 				while(response == 's') {
-					System.out.print("Digite o Nome do produto " + number + ":");
+					System.out.print("Digite o Nome do produto " + number + ": ");
 					sc.nextLine();
 					String product = sc.nextLine();
 					System.out.print("Digite o valor do produto: R$");				
@@ -105,39 +104,39 @@ import util.SysCheck;
 				System.out.println("=====================================");
 				System.out.println("O total de sua compra foi de R$ " + String.format("%.2f", Balance));
 				System.out.println("=====================================");
-				}
+				
 					
 			System.out.print("Deseja remover algum produto?: ");
 			char res = sc.next().charAt(0);
 			
 			while(res == 's') {
-			while(res != 's' && res != 'n') {
-					System.out.print("Opção inválida: ");
-					res = sc.next().charAt(0);
-				}
-						System.out.println();
-						System.out.print("Digite o número do produto a ser removido por favor: ");
-						int opc = sc.nextInt();
-						Integer position = RemProd(data,opc);
-							while (position == null) {
-								System.out.print("Não existe produto nessa posição: ");
-								opc = sc.nextInt();
-							}
-							if(position != null){
-								Balance -= data.get(position).getPrice();
-								data.remove(position);
-							}
-							for (ListProd x : data){
-								System.out.println(x.toString());
-							}
-								System.out.println("=====================================");
-								System.out.println("O total de sua compra foi de R$ " + String.format("%.2f", Balance));
-								System.out.println("=====================================");
-						System.out.println();
-						System.out.print("Deseja remover outro produto?: ");
+				while(res != 's' && res != 'n') {
+						System.out.print("Opção inválida: ");
 						res = sc.next().charAt(0);
-						System.out.println();
+					}
+				System.out.println();
+				System.out.print("Digite o número do produto a ser removido por favor: ");
+				int opc = sc.nextInt();
+				Integer position = RemProd(data,opc);
+				while (position == null) {
+					System.out.print("Não existe produto nessa posição: ");
+					opc = sc.nextInt();
 				}
+				if(position != null){
+					Balance -= data.get(position).getPrice();
+					data.remove(position);
+					}
+					for (ListProd x : data){
+						System.out.println(x.toString());
+					}
+				System.out.println("=====================================");
+				System.out.println("O total de sua compra foi de R$ " + String.format("%.2f", Balance));
+				System.out.println("=====================================");
+				System.out.println();
+				System.out.print("Deseja remover outro produto?: ");
+				res = sc.next().charAt(0);
+				System.out.println();
+			}}
 			
 			System.out.print("Obrigado,volte sempre.");
 
